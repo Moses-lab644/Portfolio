@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// ✅ POST route
+
 app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -34,14 +34,15 @@ app.post("/contact", async (req, res) => {
              <p><b>Message:</b><br>${message}</p>`,
     });
 
-    res.send(`✅ Thank you for your message, ${name}! I will get back to you soon.`);
+    res.send(` Thank you for your message, ${name}! I will get back to you soon.`);
   } catch (error) {
-    console.error("❌ Error sending email:", error);
+    console.error(" Error sending email:", error);
     res.status(500).send("Something went wrong. Please try again later.");
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(` Server running at http://localhost:${PORT}`);
 });
+
 
